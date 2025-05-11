@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'features/home/presentation/home_page.dart';
 import 'routes/app_routes.dart';
 import 'features/onboarding/presentation/onboarding_page.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       initialRoute: AppRoutes.onboarding,
       routes: {
         AppRoutes.onboarding: (_) => const OnboardingPage(),
-        AppRoutes.home: (_) => const Placeholder(), // لاحقاً تستبدلها بصفحة حقيقية
+        AppRoutes.home: (_) => const HomePage(), // لاحقاً تستبدلها بصفحة حقيقية
       },
     );
   }
