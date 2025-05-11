@@ -11,42 +11,79 @@ class OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.darkBackground,
-      body: SafeArea(
-        child: Column(
-          children: [
-            const Spacer(),
-            Image.asset(AppImages.coffeeCup, height: 300),
-            const SizedBox(height: 20),
-            Text(
-              AppTexts.welcomeTitle,
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
+    Size size = MediaQuery.of(context).size;
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.darkBackground,
+        body: SafeArea(
+          child: SizedBox(
+            width: size.width,
+            height: size.height,
+            child: Stack(
+              children: [
+                Container(
+                  width: size.width,
+                  height: size.height  * 0.7,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(AppImages.coffeeCup),
+                      fit: BoxFit.cover
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  child: Container(
+                    width: size.width,
+                    height: size.height * 0.27,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xff1c1c1c), Color(0xff000000),Color(0xff000000),Color(0xff000000),],
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xff000000).withOpacity(0.8), // 🔹 لون الظل
+                          blurRadius: 20, // 🔹 مدى نعومة الظل
+                          spreadRadius: 30, // 🔹 مدى انتشار الظل
+                          offset: Offset(0, 4), // 🔹 موقع الظل
+                        ),
+                      ],
+
+                    ),
+                  ),
+                ),
+                // const SizedBox(height: 20),
+                // Text(
+                //   AppTexts.welcomeTitle,
+                //   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                //     color: Colors.white,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                //   textAlign: TextAlign.center,
+                // ),
+                // const SizedBox(height: 12),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                //   child: Text(
+                //     AppTexts.welcomeSubtitle,
+                //     style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white70),
+                //     textAlign: TextAlign.center,
+                //   ),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20),
+                //   child: PrimaryButton(
+                //     text: "Get Started",
+                //     onPressed: () {
+                //       context.read<OnboardingProvider>().completeOnboarding(context);
+                //     },
+                //   ),
+                // ),
+              ],
             ),
-            const SizedBox(height: 12),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Text(
-                AppTexts.welcomeSubtitle,
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white70),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20),
-              child: PrimaryButton(
-                text: "Get Started",
-                onPressed: () {
-                  context.read<OnboardingProvider>().completeOnboarding(context);
-                },
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

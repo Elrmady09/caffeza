@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Coffee App',
       theme: ThemeData.dark(),
       initialRoute: AppRoutes.onboarding,
