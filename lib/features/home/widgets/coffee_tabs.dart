@@ -20,6 +20,7 @@ class _CoffeeTabsState extends State<CoffeeTabs> {
     return SizedBox(
       height: size.height * 0.05,
       child: ListView.separated(
+        shrinkWrap: false,
         padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
         scrollDirection: Axis.horizontal,
         itemCount: tabs.length,

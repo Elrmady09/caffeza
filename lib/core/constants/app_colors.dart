@@ -8,4 +8,5 @@ class AppColors {
   static const Color brown = Color(0xFF6F4E37);
   static const Color darkBrown = Color(0xFF4B2E20);
   static const Color lightBrown = Color(0xFF8B5E3C);
+  static const Color red = Color(0xFFED5151);
 }

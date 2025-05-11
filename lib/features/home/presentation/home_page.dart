@@ -7,7 +7,6 @@ import '../logic/home_provider.dart';
 import '../widgets/coffee_grid.dart';
 import '../widgets/coffee_promo_card.dart';
 import '../widgets/coffee_tabs.dart';
-import '../widgets/home_app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,57 +18,75 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: size.width * 0.056,
-            vertical: size.height * 0.02,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const HomeAppBar(),
-              HeightSpace(space: 0.02),
-              GeneralText(
-                text: 'Location',
-                sizetext: size.width * 0.035,
-                color: Colors.grey,
-              ),
-              GeneralText(
-                text: 'Bilzen, Tanjungbalai',
-                sizetext: size.width * 0.045,
-                fontWeight: FontWeight.bold,
-              ),
-              HeightSpace(space: 0.02),
-              // 🔍 Search Bar
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(size.width * 0.04),
+        child: Stack(
+          children: [
+            Container(
+              width: size.width,
+              height: size.height * 0.35,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xff313030),Color(0xff000000)],
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
                 ),
-                child: Row(
+              ),
+
+
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: size.width * 0.056,
+                vertical: size.height * 0.02,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.search, color: Colors.grey),
-                    WidthSpace(space: 0.02),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search coffee',
-                          border: InputBorder.none,
-                        ),
+                    HeightSpace(space: 0.02),
+                    GeneralText(
+                      text: 'Location',
+                      sizetext: size.width * 0.035,
+                      color: Colors.grey,
+                    ),
+                    GeneralText(
+                      text: 'Bilzen, Tanjungbalai',
+                      sizetext: size.width * 0.045,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    HeightSpace(space: 0.02),
+                    // 🔍 Search Bar
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: BorderRadius.circular(size.width * 0.04),
                       ),
-                    )
+                      child: Row(
+                        children: [
+                          const Icon(Icons.search, color: Colors.grey),
+                          WidthSpace(space: 0.02),
+                          Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Search coffee',
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    HeightSpace(space: 0.025),
+                    const CoffeePromoCard(),
+                    HeightSpace(space: 0.02),
+                    const CoffeeTabs(),
+                    HeightSpace(space: 0.015),
+                    CoffeeGrid(),
                   ],
                 ),
               ),
-              HeightSpace(space: 0.025),
-              const CoffeePromoCard(),
-              HeightSpace(space: 0.02),
-              const CoffeeTabs(),
-              HeightSpace(space: 0.015),
-              const Expanded(child: CoffeeGrid()),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
