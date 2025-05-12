@@ -38,8 +38,8 @@ class _CoffeeTabsState extends State<CoffeeTabs> {
                 vertical: size.height * 0.008,
               ),
               decoration: BoxDecoration(
-                color: isSelected ? AppColors.primary : Colors.transparent,
-                borderRadius: BorderRadius.circular(size.width * 0.04),
+                color: isSelected ? AppColors.primary : Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(size.width * 0.025),
               ),
               child: Center(
                 child: Text(

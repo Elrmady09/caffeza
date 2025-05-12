@@ -1,4 +1,5 @@
 import 'package:caffeza/core/constants/app_colors.dart';
+import 'package:caffeza/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/widgets/space.dart';
 import '../../../core/widgets/General Text.dart';
@@ -9,13 +10,39 @@ class CoffeeGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final List<Map<String, dynamic>> coffeeList = [
+      {
+        "name": "Caffe Mocha",
+        "type": "Deep Foam",
+        "price": 4.53,
+        "image": AppImages.Imagecard_1,
+      },
+      {
+        "name": "Flat White",
+        "type": "Espresso Blend",
+        "price": 5.20,
+        "image": AppImages.Imagecard_2,
+      },
+      {
+        "name": "Latte",
+        "type": "Creamy",
+        "price": 4.90,
+        "image": AppImages.Imagecard_3,
+      },
+      {
+        "name": "Cappuccino",
+        "type": "Milk Foam",
+        "price": 4.75,
+        "image": AppImages.Imagecard_4,
+      },
+    ];
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
       child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        itemCount: 4,
+        itemCount: coffeeList.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisExtent: size.height * 0.3,
@@ -23,6 +50,7 @@ class CoffeeGrid extends StatelessWidget {
           mainAxisSpacing: size.height * 0.02,
         ),
         itemBuilder: (context, index) {
+          final coffee = coffeeList[index];
           return Container(
             padding: EdgeInsets.symmetric(horizontal:size.width * 0.03,vertical:size.height * 0.01 ),
             decoration: BoxDecoration(
@@ -43,7 +71,7 @@ class CoffeeGrid extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(size.width * 0.03),
                   child: Image.asset(
-                    "assets/images/home/Image card ${index + 1}.png",
+                    coffee["image"],
                     width: double.infinity,
                     height: size.height * 0.14,
                     fit: BoxFit.cover,
@@ -51,13 +79,13 @@ class CoffeeGrid extends StatelessWidget {
                 ),
                 HeightSpace(space: 0.015),
                 GeneralText(
-                    text: "Caffe Mocha",
+                    text: coffee["name"],
                     fontWeight: FontWeight.bold,
                   color:AppColors.black,
                 ),
                 HeightSpace(space: 0.005),
                 GeneralText(
-                  text: "Deep Foam",
+                  text: coffee["type"],
                   sizetext: size.width * 0.031,
                   color: Colors.grey,
                 ),
@@ -66,7 +94,7 @@ class CoffeeGrid extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GeneralText(
-                      text: "\$ 4.53",
+                      text: "\$ ${coffee["price"]}",
                       fontWeight: FontWeight.bold,
                       sizetext: size.width * 0.04,
                       color: AppColors.black,
