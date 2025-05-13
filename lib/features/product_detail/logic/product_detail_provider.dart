@@ -1,7 +1,22 @@
+
 import 'package:flutter/material.dart';
+import '../data/models/product_model.dart';
 
 class DetailProvider extends ChangeNotifier {
-  // الحجم المختار للقهوة
+  // ✅ المنتج المختار
+  ProductModel? _selectedCoffee;
+  ProductModel get selectedCoffee => _selectedCoffee!;
+  void setSelectedCoffee(ProductModel coffee) {
+    _selectedCoffee = coffee;
+    notifyListeners();
+  }
+
+  void clearSelectedCoffee() {
+    _selectedCoffee = null;
+    notifyListeners();
+  }
+
+  // ✅ الحجم المختار للقهوة
   int _selectedSizeIndex = 1; // 0 = S, 1 = M, 2 = L
   int get selectedSizeIndex => _selectedSizeIndex;
 
@@ -10,7 +25,7 @@ class DetailProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // حالة المفضلة
+  // ✅ حالة المفضلة
   bool _isFavorite = false;
   bool get isFavorite => _isFavorite;
 

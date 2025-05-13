@@ -1,3 +1,4 @@
+import 'package:caffeza/core/widgets/General%20Text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/widgets/space.dart';
@@ -14,33 +15,37 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: const BackButton(color: Colors.black),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.favorite_border, color: Colors.black),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            DetailImage(),
-            HeightSpace(space: 0.02),
-            DetailTitleSection(),
-            HeightSpace(space: 0.015),
-            DetailDescription(),
-            HeightSpace(space: 0.02),
-            DetailSizeSelector(),
-            HeightSpace(space: 0.02),
-            DetailPriceButton(),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: const BackButton(color: Colors.black),
+          title: Center(child: GeneralText(text: 'Detail')),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.favorite_border, color: Colors.black),
+              onPressed: () {},
+            ),
           ],
+        ),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              DetailImage(),
+              HeightSpace(space: 0.02),
+              DetailTitleSection(),
+              HeightSpace(space: 0.015),
+              DetailDescription(),
+              HeightSpace(space: 0.02),
+              DetailSizeSelector(),
+              HeightSpace(space: 0.02),
+              DetailPriceButton(),
+            ],
+          ),
         ),
       ),
     );
