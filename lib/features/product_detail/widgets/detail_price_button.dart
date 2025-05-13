@@ -12,11 +12,23 @@ class DetailPriceButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        GeneralText(
-          text: "\$ 4.53",
-          fontWeight: FontWeight.bold,
-          sizetext: size.width * 0.06,
-          color: AppColors.black,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GeneralText(
+              text: "Price",
+              fontWeight: FontWeight.w500,
+              sizetext: size.width * 0.035,
+              color: Colors.grey,
+            ),
+            GeneralText(
+              padding: EdgeInsets.only(top: size.height * 0.005),
+              text: "\$ 4.53",
+              fontWeight: FontWeight.bold,
+              sizetext: size.width * 0.05,
+              color: AppColors.primary,
+            ),
+          ],
         ),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
@@ -26,11 +38,16 @@ class DetailPriceButton extends StatelessWidget {
             ),
             padding: EdgeInsets.symmetric(
               vertical: size.height * 0.02,
-              horizontal: size.width * 0.1,
+              horizontal: size.width * 0.22,
             ),
           ),
           onPressed: () {},
-          child: const Text("Buy Now"),
+          child: GeneralText(
+            text:  "Buy Now",
+            color: Colors.white,
+            fontWeight: FontWeight.w700,
+            sizetext: size.width * 0.045,
+          ),
         ),
       ],
     );

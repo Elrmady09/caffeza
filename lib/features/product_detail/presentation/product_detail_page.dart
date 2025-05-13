@@ -7,6 +7,7 @@ import '../widgets/detail_image.dart';
 import '../widgets/detail_price_button.dart';
 import '../widgets/detail_size_selector.dart';
 import '../widgets/detail_title_section.dart';
+import '../widgets/divider_container.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -22,7 +23,14 @@ class DetailPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: const BackButton(color: Colors.black),
-          title: Center(child: GeneralText(text: 'Detail')),
+          title: Center(
+              child: GeneralText(
+                text: 'Detail',
+                fontWeight: FontWeight.w700,
+                color: Colors.black,
+
+              ),
+          ),
           actions: [
             IconButton(
               icon: const Icon(Icons.favorite_border, color: Colors.black),
@@ -31,18 +39,20 @@ class DetailPage extends StatelessWidget {
           ],
         ),
         body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.04,vertical: size.height * 0.02),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children:  [
               DetailImage(),
               HeightSpace(space: 0.02),
               DetailTitleSection(),
+              HeightSpace(space: 0.02),
+              Divider_Container(),
               HeightSpace(space: 0.015),
               DetailDescription(),
               HeightSpace(space: 0.02),
               DetailSizeSelector(),
-              HeightSpace(space: 0.02),
+              HeightSpace(space: 0.035),
               DetailPriceButton(),
             ],
           ),

@@ -1,3 +1,4 @@
+import 'package:caffeza/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 
 class DetailImage extends StatelessWidget {
@@ -7,13 +8,16 @@ class DetailImage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(size.width * 0.04),
-      child: Image.asset(
-        "assets/images/home/Image card 1.png",
-        width: double.infinity,
-        height: size.height * 0.25,
-        fit: BoxFit.cover,
+    return Container(
+      width: size.width,
+      height: size.height * 0.3,
+      margin: EdgeInsets.symmetric(horizontal: size.width * 0.00),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(size.width * 0.05),
+        image: DecorationImage(
+            image: AssetImage(AppImages.Imagecard_1),
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
