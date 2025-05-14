@@ -1,7 +1,9 @@
 import 'package:caffeza/core/constants/app_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/widgets/General Text.dart';
+import '../logic/product_detail_provider.dart';
 import 'detail_feature_icon.dart';
 
 class DetailTitleSection extends StatelessWidget {
@@ -9,13 +11,14 @@ class DetailTitleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final coffee = context.watch<DetailProvider>().selectedCoffee;
     Size size = MediaQuery.of(context).size;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GeneralText(
-          text: "Caffe Mocha",
+          text: coffee.name,
           fontWeight: FontWeight.bold,
           color: AppColors.black,
           sizetext: size.width * 0.05,

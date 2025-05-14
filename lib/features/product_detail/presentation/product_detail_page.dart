@@ -2,6 +2,7 @@ import 'package:caffeza/core/widgets/General%20Text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/widgets/space.dart';
+import '../logic/product_detail_provider.dart';
 import '../widgets/detail_description.dart';
 import '../widgets/detail_image.dart';
 import '../widgets/detail_price_button.dart';
@@ -15,6 +16,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final product = context.watch<DetailProvider>().selectedCoffee;
 
     return SafeArea(
       child: Scaffold(
@@ -49,7 +51,7 @@ class DetailPage extends StatelessWidget {
               HeightSpace(space: 0.02),
               Divider_Container(),
               HeightSpace(space: 0.015),
-              DetailDescription(),
+              DetailDescription(description: product.description),
               HeightSpace(space: 0.02),
               DetailSizeSelector(),
               HeightSpace(space: 0.035),

@@ -1,11 +1,15 @@
 import 'package:caffeza/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../logic/product_detail_provider.dart';
 
 class DetailImage extends StatelessWidget {
   const DetailImage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final coffee = context.watch<DetailProvider>().selectedCoffee;
     Size size = MediaQuery.of(context).size;
 
     return Container(
@@ -15,7 +19,7 @@ class DetailImage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(size.width * 0.05),
         image: DecorationImage(
-            image: AssetImage(AppImages.Imagecard_1),
+            image: AssetImage(coffee.image),
           fit: BoxFit.cover,
         ),
       ),

@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 import '../../../core/widgets/General Text.dart';
 
 class DetailDescription extends StatefulWidget {
-  const DetailDescription({super.key});
+  const DetailDescription({
+    super.key,
+    required this.description,
+  });
+  final String description;
 
   @override
   State<DetailDescription> createState() => _DetailDescriptionState();
@@ -15,11 +19,10 @@ class _DetailDescriptionState extends State<DetailDescription> {
 
   bool _isExpanded = false;
 
-  final String fullText =
-      "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85 ml of fresh milk, topped with foamed milk. The texture and taste depend on the skill of the barista. The milk is steamed to create a thick foam, and the espresso adds a rich coffee flavor...";
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final String fullText = widget.description;
     final textStyle = TextStyle(
       fontSize: size.width * 0.035,
       color: Colors.grey[500],
@@ -32,21 +35,24 @@ class _DetailDescriptionState extends State<DetailDescription> {
         style: textStyle,
         children: [
           TextSpan(
-            text: _isExpanded ? fullText : '${fullText.substring(0, 140)}...',
+            text: _isExpanded || fullText.length <= 140
+                ? fullText
+                : '${fullText.substring(0, 140)}...',
           ),
-          TextSpan(
-            text: _isExpanded ? ' Read Less' : ' Read More',
-            style: TextStyle(
-              color: AppColors.primary,
-              fontWeight: FontWeight.bold,
+          if (fullText.length > 140) // ✅ أظهر "Read More" فقط إذا النص طويل
+            TextSpan(
+              text: _isExpanded ? ' Read Less' : ' Read More',
+              style: TextStyle(
+                color: AppColors.primary,
+                fontWeight: FontWeight.bold,
+              ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  setState(() {
+                    _isExpanded = !_isExpanded;
+                  });
+                },
             ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                setState(() {
-                  _isExpanded = !_isExpanded;
-                });
-              },
-          ),
         ],
       ),
     );

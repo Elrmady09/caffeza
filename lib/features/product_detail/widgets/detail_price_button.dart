@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/widgets/General Text.dart';
+import '../logic/product_detail_provider.dart';
 
 class DetailPriceButton extends StatelessWidget {
   const DetailPriceButton({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final coffee = context.watch<DetailProvider>().selectedCoffee;
     Size size = MediaQuery.of(context).size;
 
     return Row(
@@ -23,7 +26,7 @@ class DetailPriceButton extends StatelessWidget {
             ),
             GeneralText(
               padding: EdgeInsets.only(top: size.height * 0.005),
-              text: "\$ 4.53",
+              text: "\$ ${coffee.price}",
               fontWeight: FontWeight.bold,
               sizetext: size.width * 0.05,
               color: AppColors.primary,
