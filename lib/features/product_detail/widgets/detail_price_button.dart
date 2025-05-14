@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/widgets/General Text.dart';
+import '../../../routes/app_routes.dart';
 import '../logic/product_detail_provider.dart';
 
 class DetailPriceButton extends StatelessWidget {
@@ -44,7 +45,9 @@ class DetailPriceButton extends StatelessWidget {
               horizontal: size.width * 0.22,
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.order);
+          },
           child: GeneralText(
             text:  "Buy Now",
             color: Colors.white,
