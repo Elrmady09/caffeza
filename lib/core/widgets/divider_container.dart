@@ -9,7 +9,7 @@ class Divider_Container extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: size.width * 0.04),
       width: size.width,
-      height: size.height * 0.001,
+      height: size.height * 0.002,
       color: Colors.grey[300],
     );
   }

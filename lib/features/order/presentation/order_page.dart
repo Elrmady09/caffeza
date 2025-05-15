@@ -1,10 +1,12 @@
+import 'package:caffeza/core/widgets/divider_container.dart';
+import 'package:flutter/material.dart';
 
 import 'package:caffeza/core/widgets/space.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/widgets/General Text.dart';
 import '../widget/order_address_section.dart';
+import '../widget/order_deliver_section.dart';
 import '../widget/order_payment_summary.dart';
 import '../widget/order_product_summary.dart';
 
@@ -35,65 +37,20 @@ class OrderPage extends StatelessWidget {
         body: Padding(
           padding:  EdgeInsets.symmetric(horizontal: size.width * 0.04),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: size.width * 0.025),
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.01),
-                width: size.width,
-                height: size.height * 0.06,
-                decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.circular(size.width * 0.03),
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: size.width,
-                        height: size.height * 0.05,
-                        decoration: BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(size.width * 0.02),
-                        ),
-                        child: Center(
-                          child: GeneralText(
-                              text: 'Deliver',
-                            sizetext: size.width * 0.03,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                    WidthSpace(space: 0.02),
-                    Expanded(
-                      child: Container(
-                        width: size.width,
-                        height: size.height * 0.05,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(size.width * 0.02),
-                        ),
-                        child: Center(
-                          child: GeneralText(
-                            text: 'Pick Up',
-                            sizetext: size.width * 0.03,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              OrderDeliverSection(),
               // عنوان التوصيل
               const OrderAddressSection(),
-              const SizedBox(height: 20),
+              HeightSpace(space: 0.025),
+              Divider_Container(),
+              HeightSpace(space: 0.025),
 
               // ملخص المنتج مع تحديد الكمية
-              OrderProductSummary( image: '', name: '', type: '', price: 10, quantity: 20,),
-              const SizedBox(height: 20),
+              OrderProductSummary( image: 'assets/images/home/Image card 1.png', name: 'Caffe Mocha', type: 'Deep Foam',),
+              HeightSpace(space: 0.025),
+              Divider_Container(),
+              HeightSpace(space: 0.025),
 
               // ملخص الدفع
               const OrderPaymentSummary(productPrice: 50, deliveryFee: 50,),

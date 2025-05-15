@@ -1,6 +1,7 @@
 import 'package:caffeza/core/widgets/General%20Text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../core/widgets/divider_container.dart';
 import '../../../core/widgets/space.dart';
 import '../logic/product_detail_provider.dart';
 import '../widgets/detail_description.dart';
@@ -8,7 +9,6 @@ import '../widgets/detail_image.dart';
 import '../widgets/detail_price_button.dart';
 import '../widgets/detail_size_selector.dart';
 import '../widgets/detail_title_section.dart';
-import '../widgets/divider_container.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
