@@ -63,7 +63,7 @@ class OrderProductSummary extends StatelessWidget {
             border: Border.all(width: 1,color: Color(0xffafabab)),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey[400]!.withOpacity(0.9), // 🔹 لون الظل
+                color: Colors.grey[400]!.withOpacity(0.5), // 🔹 لون الظل
                 blurRadius: 50, // 🔹 مدى نعومة الظل
                 spreadRadius: 10, // 🔹 مدى انتشار الظل
                 offset: Offset(0, 4), // 🔹 موقع الظل
@@ -85,11 +85,12 @@ class OrderProductSummary extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: size.width * 0.016,vertical: size.height * 0.01),
           decoration: BoxDecoration(
+            color: Colors.white,
             borderRadius: BorderRadius.circular(100),
             border: Border.all(width: 1,color: Color(0xffafabab)),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey[400]!.withOpacity(0.9), // 🔹 لون الظل
+                color: Colors.grey[400]!.withOpacity(0.5), // 🔹 لون الظل
                 blurRadius: 50, // 🔹 مدى نعومة الظل
                 spreadRadius: 10, // 🔹 مدى انتشار الظل
                 offset: Offset(0, 4), // 🔹 موقع الظل

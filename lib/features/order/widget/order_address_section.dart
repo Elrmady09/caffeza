@@ -14,14 +14,14 @@ class OrderAddressSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GeneralText(
-          padding: EdgeInsets.symmetric(vertical: size.height * 0.02),
+          padding: EdgeInsets.only(top: size.height * 0.02,bottom: size.height * 0.015),
           text: "Delivery Address",
           sizetext:size.width * 0.04,
           fontWeight: FontWeight.w700,
           color: Colors.black,
         ),
         GeneralText(
-          //padding: EdgeInsets.symmetric(vertical: size.height * 0.02),
+
           text: "Jl. Kpg Sutoyo",
           sizetext:size.width * 0.038,
           fontWeight: FontWeight.w700,
