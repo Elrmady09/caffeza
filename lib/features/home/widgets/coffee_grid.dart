@@ -1,11 +1,9 @@
 import 'package:caffeza/core/constants/app_colors.dart';
-import 'package:caffeza/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/widgets/space.dart';
 import '../../../core/widgets/General Text.dart';
 import '../../../routes/app_routes.dart';
-import '../../product_detail/data/models/product_model.dart';
 import '../../product_detail/logic/product_detail_provider.dart';
 import 'package:caffeza/data/dummy_products.dart';
 

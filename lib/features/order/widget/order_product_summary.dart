@@ -1,25 +1,25 @@
 import 'package:caffeza/core/constants/app_colors.dart';
 import 'package:caffeza/core/widgets/General%20Text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/widgets/space.dart';
+import '../logic/order_provider.dart';
 
 class OrderProductSummary extends StatelessWidget {
-  final String image;
-  final String name;
-  final String type;
+
 
 
   const OrderProductSummary({
     super.key,
-    required this.image,
-    required this.name,
-    required this.type,
   });
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final orderProvider = context.watch<OrderProvider>();
+    final product = orderProvider.orderedCoffee;
+    if (product == null) return SizedBox.shrink();
 
     return Row(
       //crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +27,7 @@ class OrderProductSummary extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Image.asset(
-            image,
+            product.image,
             width: size.width * 0.16,
             height: size.width * 0.16,
             fit: BoxFit.cover,
@@ -39,14 +39,14 @@ class OrderProductSummary extends StatelessWidget {
           children: [
             GeneralText(
               padding: EdgeInsets.only(top: size.height * 0.003),
-              text: name,
+              text: product.name,
               sizetext: size.width * 0.045,
               fontWeight:FontWeight.w700 ,
               color: AppColors.primary,
                 ),
             GeneralText(
               padding: EdgeInsets.only(top: size.height * 0.015,left: size.width * 0.005),
-              text: type,
+              text: product.type,
               sizetext: size.width * 0.035,
               color: Colors.grey,
               fontWeight:FontWeight.w700 ,
