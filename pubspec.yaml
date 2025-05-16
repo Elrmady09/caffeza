@@ -64,6 +64,7 @@ flutter:
     - assets/images/onboarding/
     - assets/images/home/
     - assets/images/products/
+    - assets/images/delivery_tracking/
     - assets/images/icons/
     - assets/lottie/
 

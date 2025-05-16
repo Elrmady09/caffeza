@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'features/delivery_tracking/presentation/delivery_tracking_page.dart';
 import 'features/home/presentation/home_page.dart';
 import 'features/order/presentation/order_page.dart';
 import 'features/product_detail/presentation/product_detail_page.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.home: (_) => const HomePage(), // لاحقاً تستبدلها بصفحة حقيقية
         AppRoutes.productdetail: (_) => const DetailPage(),
         AppRoutes.order: (_) => const OrderPage(),
+        AppRoutes.deliverytracking: (_) => const DeliveryTrackingPage(),
       },
     );
   }

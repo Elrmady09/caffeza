@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'features/delivery_tracking/logic/delivery_tracking_provider.dart';
 import 'features/home/logic/home_provider.dart';
 import 'features/onboarding/logic/onboarding_provider.dart';
 import 'app.dart';
@@ -14,6 +15,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => HomeProvider()),
         ChangeNotifierProvider(create: (_) => DetailProvider()),
         ChangeNotifierProvider(create: (_) => OrderProvider()),
+        ChangeNotifierProvider(create: (_) => DeliveryTrackingProvider()),
       ],
       child: const MyApp(),
     ),

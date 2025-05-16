@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/widgets/General Text.dart';
 import '../../../core/widgets/space.dart';
+import '../../../routes/app_routes.dart';
 import '../logic/order_provider.dart';
 
 class WalletCashSection extends StatelessWidget {
@@ -60,21 +61,26 @@ class WalletCashSection extends StatelessWidget {
             ],
           ),
           HeightSpace(space: 0.015),
-          Container(
-            width: size.width,
-            height: size.height * 0.07,
-            decoration: BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.circular(size.width * 0.03),
-            ),
-            child: Center(
-              child:GeneralText(
-                //padding: EdgeInsets.only(right: size.width * 0.02),
-                text: 'Order',
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                sizetext: size.width * 0.05,
-              ) ,
+          GestureDetector(
+            onTap: (){
+              Navigator.pushNamed(context, AppRoutes.deliverytracking);
+            },
+            child: Container(
+              width: size.width,
+              height: size.height * 0.07,
+              decoration: BoxDecoration(
+                color: AppColors.primary,
+                borderRadius: BorderRadius.circular(size.width * 0.03),
+              ),
+              child: Center(
+                child:GeneralText(
+                  //padding: EdgeInsets.only(right: size.width * 0.02),
+                  text: 'Order',
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                  sizetext: size.width * 0.05,
+                ) ,
+              ),
             ),
           )
         ],
