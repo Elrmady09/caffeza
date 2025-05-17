@@ -39,6 +39,7 @@ class OrderPaymentSummary extends StatelessWidget {
             color: Colors.black,
             fontWeight: FontWeight.w700,
             sizetext: size.width * 0.035,
+            textDecoration: TextDecoration.lineThrough,
           ) ,
         ),
       ],

@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:caffeza/core/constants/app_colors.dart';
 import 'package:caffeza/core/widgets/General%20Text.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/widgets/space.dart';
 import '../logic/order_provider.dart';
+import 'add_Button.dart';
 
 class OrderProductSummary extends StatelessWidget {
 
@@ -55,52 +56,17 @@ class OrderProductSummary extends StatelessWidget {
           ],
         ),
         Spacer(),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.016,vertical: size.height * 0.01),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: Colors.white,
-            border: Border.all(width: 1,color: Color(0xffafabab)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey[400]!.withOpacity(0.5), // 🔹 لون الظل
-                blurRadius: 50, // 🔹 مدى نعومة الظل
-                spreadRadius: 10, // 🔹 مدى انتشار الظل
-                offset: Offset(0, 4), // 🔹 موقع الظل
-              ),
-            ],
-          ),
-          child: Center(
-            child: Icon(Icons.exposure_minus_1,size: size.width * 0.045,color: Colors.black87,),
-          ),
-        ),
+        AddButton(ontap:() => context.read<OrderProvider>().decreaseQuantity(),iconData: Icons.exposure_minus_1_outlined,),
         WidthSpace(space: 0.03),
         GeneralText(
-          text: '1',
+          text: '${orderProvider.quantity}',
           sizetext: size.width * 0.045,
           color: Colors.black87,
           fontWeight:FontWeight.w700 ,
         ),
         WidthSpace(space: 0.03),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.016,vertical: size.height * 0.01),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(100),
-            border: Border.all(width: 1,color: Color(0xffafabab)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey[400]!.withOpacity(0.5), // 🔹 لون الظل
-                blurRadius: 50, // 🔹 مدى نعومة الظل
-                spreadRadius: 10, // 🔹 مدى انتشار الظل
-                offset: Offset(0, 4), // 🔹 موقع الظل
-              ),
-            ],
-          ),
-          child: Center(
-            child: Icon(Icons.plus_one,size: size.width * 0.045,color: Colors.black87,),
-          ),
-        ),
+        AddButton(ontap:() => context.read<OrderProvider>().increaseQuantity(),iconData: Icons.exposure_plus_1_outlined,),
+
 
       ],
     );
