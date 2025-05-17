@@ -20,14 +20,6 @@ class DeliveryMapSection extends StatelessWidget {
             width: size.width,
             height: size.height,
           ),
-          Positioned(
-            top: size.height * 0.35,
-            right: size.width * 0.08,
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: const Icon(Icons.my_location, color: Colors.black),
-            ),
-          ),
         ],
       ),
     );

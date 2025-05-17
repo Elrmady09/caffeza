@@ -1,3 +1,4 @@
+import 'package:caffeza/core/widgets/space.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/constants/app_colors.dart';
@@ -40,12 +41,21 @@ class DeliveryTrackingPage extends StatelessWidget {
           Positioned(
             top: size.height * 0.06,
             left: size.width * 0.04,
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: IconButton(
+                    icon: Icon(Icons.arrow_back_ios_new,color: Colors.black,size: size.width * 0.05,),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ),
+                WidthSpace(space: 0.72),
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: const Icon(Icons.my_location, color: Colors.black),
+                ),
+              ],
             ),
           ),
         ],
